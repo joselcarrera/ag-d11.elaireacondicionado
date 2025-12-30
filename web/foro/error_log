@@ -1,0 +1,14 @@
+[21-Jun-2021 18:15:35 Europe/Madrid] PHP Fatal error:  Uncaught Error: Class 'Patchwork\Utf8\Bootup' not found in /home/eqdqatdg/pre.elaireacondicionado.com/foro/includes/utf/utf_tools.php:27
+Stack trace:
+#0 /home/eqdqatdg/pre.elaireacondicionado.com/foro/common.php(97): require()
+#1 /home/eqdqatdg/pre.elaireacondicionado.com/foro/index.php(23): include('/home/eqdqatdg/...')
+#2 {main}
+  thrown in /home/eqdqatdg/pre.elaireacondicionado.com/foro/includes/utf/utf_tools.php on line 27
+[28-Jul-2022 09:09:28 Europe/Madrid] PHP Fatal error:  Uncaught RuntimeException: Unable to create the cache directory (./cache/production/twig/8d). in /home/eqdqatdg/public_html/foro/vendor/twig/twig/src/Cache/FilesystemCache.php:57
+Stack trace:
+#0 /home/eqdqatdg/public_html/foro/vendor/twig/twig/src/Environment.php(487): Twig\Cache\FilesystemCache->write('./cache/product...', '<?php\n\nuse Twig...')
+#1 /home/eqdqatdg/public_html/foro/vendor/twig/twig/src/Environment.php(445): Twig\Environment->loadClass('__TwigTemplate_...', 'viewtopic_body....', NULL)
+#2 /home/eqdqatdg/public_html/foro/phpbb/template/twig/environment.php(277): Twig\Environment->loadTemplate('viewtopic_body....', NULL)
+#3 /home/eqdqatdg/public_html/foro/vendor/twig/twig/src/Environment.php(423): phpbb\template\twig\environment->loadTemplate('viewtopic_body....')
+#4 /home/eqdqatdg/public_html/foro/vendor/twig/twig/src/Environment.php(384): Twig\Environment->load('viewtopic_body....')
+#5 /home/eqdqatdg/public_html/foro/phpbb/template/twig/environment.php(224): Twig\Environment->render('viewtopic_ in /home/eqdqatdg/public_html/foro/vendor/twig/twig/src/Cache/FilesystemCache.php on line 57

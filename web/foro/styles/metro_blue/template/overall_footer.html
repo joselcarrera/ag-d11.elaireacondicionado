@@ -1,0 +1,109 @@
+		<!-- EVENT overall_footer_content_after -->
+	</div>
+
+<!-- EVENT overall_footer_page_body_after -->
+
+<!-- Prefooter blocks go below -->
+
+
+<div id="page-footer" class="page-footer" role="contentinfo">
+
+	<div class="copyright">
+		<p class="footer-row">
+
+		</p>
+		<!-- IF DEBUG_OUTPUT -->
+		<p class="footer-row">
+			<span class="footer-info">{{ DEBUG_OUTPUT }}</span>
+		</p>
+		<!-- ENDIF -->
+		<!-- IF U_ACP -->
+		<p class="footer-row">
+			<a class="footer-link text-strong" href="{{ U_ACP }}">{{ lang('ACP') }}</a>
+		</p>
+		<!-- ENDIF -->
+	</div>
+
+	<div id="darkenwrapper" class="darkenwrapper" data-ajax-error-title="{L_AJAX_ERROR_TITLE}" data-ajax-error-text="{L_AJAX_ERROR_TEXT}" data-ajax-error-text-abort="{L_AJAX_ERROR_TEXT_ABORT}" data-ajax-error-text-timeout="{L_AJAX_ERROR_TEXT_TIMEOUT}" data-ajax-error-text-parsererror="{L_AJAX_ERROR_TEXT_PARSERERROR}">
+		<div id="darken" class="darken">&nbsp;</div>
+	</div>
+
+	<div id="phpbb_alert" class="phpbb_alert" data-l-err="{L_ERROR}" data-l-timeout-processing-req="{L_TIMEOUT_PROCESSING_REQ}">
+		<a href="#" class="alert_close"></a>
+		<h3 class="alert_title">&nbsp;</h3><p class="alert_text"></p>
+	</div>
+	<div id="phpbb_confirm" class="phpbb_alert">
+		<a href="#" class="alert_close"></a>
+		<div class="alert_text"></div>
+  </div>
+  
+  <div class="footer_credit-footer">
+    <!-- Social Links -->
+      <div class="social-icons-footer">
+       <ul>
+        <li><a class="rss" href="/rss.xml"><img src="/images/rss-fa.png" style="width:16px; height:16px;" alt="RSS"></a></li>
+        <li><a class="fb" href="https://www.facebook.com/elaireacondicionadocom/" target="_blank" rel="me noreferrer noopener"><img src="/images/facebook-fa.png" style="width:16px; height:16px;" alt="Facebook"></a></li>
+        <li><a class="twitter" href="https://twitter.com/el_aire" target="_blank" rel="me noreferrer noopener"><img src="/images/twitter-fa.png" style="width:16px; height:16px;" alt="Twitter"></a></li>
+        <li><span class="camuflaEnlace" atributo="{CONTACTO_OF_LINK}"><img src="/images/note-fa.png" style="width:16px; height:16px;" alt="Formulario de contacto"></li>
+       </ul>
+      </div>
+
+    <div id="copyright-footer">
+      <p class="copyright-footer">
+        El Aire Acondicionado .com<br><span style="font-size:0.8em;">Aire acondicionado y climatización</span>
+      </p>
+      
+      <p class="credits">
+        <span class="camuflaEnlace" atributo="{PRENSA_OF_LINK}">Prensa</span><br>
+        <span class="camuflaEnlace" atributo="{MAPA_WEB_OF_LINK}">Mapa web</span><br>
+        <span class="camuflaEnlace" atributo="{POLITICA_COOKIES_OF_LINK}">Pirivacidad y cookies</span>      
+    </p>
+      <div class="clear"></div>
+    </div>
+  </div> 
+</div>
+
+</div>
+
+<script src="{T_JQUERY_LINK}"></script>
+<!-- IF S_ALLOW_CDN --><script>window.jQuery || document.write('\x3Cscript src="{T_ASSETS_PATH}/javascript/jquery-3.6.0.min.js?assets_version={T_ASSETS_VERSION}">\x3C/script>');</script><!-- ENDIF -->
+<script src="{T_ASSETS_PATH}/javascript/core.js?assets_version={T_ASSETS_VERSION}"></script>
+<!-- INCLUDEJS forum_fn.js -->
+<!-- INCLUDEJS ajax.js -->
+
+<!-- IF not S_USER_LOGGED_IN and not S_IS_BOT -->
+<!-- INCLUDEJS metro_login_popup.js -->
+<!-- ENDIF -->
+
+<!-- IF S_USER_LOGGED_IN and not S_IS_BOT -->
+<!-- INCLUDEJS metro_common.js -->
+<!-- ENDIF -->
+
+<!-- EVENT overall_footer_after -->
+
+<!-- IF S_PLUPLOAD --><!-- INCLUDE plupload.html --><!-- ENDIF -->
+{$SCRIPTS}
+
+<!-- EVENT overall_footer_body_after -->
+
+
+<!-- IF not S_USER_LOGGED_IN and not (S_SHOW_COPPA or S_REGISTRATION) -->
+<!-- INCLUDE metro_login_popup.html -->
+<!-- ENDIF -->
+
+<script async src="/sites/elaireacondicionado.com/js/custom-foro.js"></script>
+
+<!-- IF S_CONTENT_DIRECTION eq 'rtl' -->
+    <link rel="preload" href="{T_THEME_PATH}/bidi.css" as="style">
+    <link rel="stylesheet" href="{T_THEME_PATH}/bidi.css">
+<!-- ENDIF -->
+
+<!-- IF S_PLUPLOAD -->
+    <link rel="preload" href="{T_THEME_PATH}/plupload.css" as="style">
+    <link rel="stylesheet" href="{T_THEME_PATH}/plupload.css">
+<!-- ENDIF -->
+
+<link rel="preload" href="{T_FONT_AWESOME_LINK}" as="style">
+<link rel="stylesheet" href="{T_FONT_AWESOME_LINK}">
+</body>
+</html>

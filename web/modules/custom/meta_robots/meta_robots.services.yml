@@ -1,0 +1,4 @@
+services:
+  meta_robots.updater:
+    class: Drupal\meta_robots\Service\MetarobotsUpdater
+    arguments: ["@config.factory", "@entity_type.manager"]

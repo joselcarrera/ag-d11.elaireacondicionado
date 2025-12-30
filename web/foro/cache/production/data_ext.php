@@ -1,0 +1,4 @@
+<?php exit; ?>
+1781107876
+661
+a:4:{s:13:"phpbbseo/meta";a:4:{s:8:"ext_name";s:13:"phpbbseo/meta";s:10:"ext_active";s:1:"1";s:9:"ext_state";s:4:"b:0;";s:8:"ext_path";s:18:"ext/phpbbseo/meta/";}s:12:"phpbbseo/usu";a:4:{s:8:"ext_name";s:12:"phpbbseo/usu";s:10:"ext_active";s:1:"1";s:9:"ext_state";s:4:"b:0;";s:8:"ext_path";s:17:"ext/phpbbseo/usu/";}s:20:"primehalo/primelinks";a:4:{s:8:"ext_name";s:20:"primehalo/primelinks";s:10:"ext_active";s:1:"1";s:9:"ext_state";s:4:"b:0;";s:8:"ext_path";s:25:"ext/primehalo/primelinks/";}s:16:"shredder/sitemap";a:4:{s:8:"ext_name";s:16:"shredder/sitemap";s:10:"ext_active";s:1:"1";s:9:"ext_state";s:4:"b:0;";s:8:"ext_path";s:21:"ext/shredder/sitemap/";}}

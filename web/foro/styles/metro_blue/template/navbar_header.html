@@ -1,0 +1,138 @@
+<div class="navbar" role="navigation">
+    <a id="logo" class="logo" href="https://www.elaireacondicionado.com/" title="El Aire Acondicionado .com"><img class="site_logo" src="/sites/elaireacondicionado.com/themes/elaireacondicionado/images/elaireacondicionado_neg.svg" alt="El Aire Acondicionado .com"></a>
+        <!-- IF IS_MOBILE -->
+        <ul id="nav-main" class="linklist bulletin nav-main-metro-tabs nav-main-mobile" role="menubar">
+        <!-- ELSE -->
+        <ul id="nav-main" class="linklist bulletin nav-main-metro-tabs" role="menubar">            
+        <!-- ENDIF -->
+
+            <li role="menuitem" aria-label="Menú" id="quick-links" class="small-icon responsive-menu dropdown-container<!-- IF not S_DISPLAY_QUICK_LINKS and not S_DISPLAY_SEARCH --> hidden<!-- ENDIF -->" data-skip-responsive="true">
+                <a href="#" class="responsive-menu-link dropdown-trigger"></a>
+                <div class="dropdown hidden">
+                    <div class="pointer"><div class="pointer-inner"></div></div>
+                    <ul class="dropdown-contents" role="menu">
+                        <!-- IF S_REGISTERED_USER -->
+
+                        <!-- ELSE -->
+                            <li><a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem" class="login-responsive-link"><i class="icon fa-power-off fa-fw" aria-hidden="true"></i>{L_LOGIN_LOGOUT}</a></li>
+                            <li class="separator"></li>
+                            <!-- IF S_REGISTER_ENABLED and not (S_SHOW_COPPA or S_REGISTRATION) -->
+                                <li><a href="{U_REGISTER}" role="menuitem"><i class="icon fa-plus-circle  fa-fw" aria-hidden="true"></i>{L_REGISTER}</a></li>
+                            <!-- ENDIF -->
+                            <!-- EVENT navbar_header_logged_out_content -->
+                        <!-- ENDIF -->
+
+                        <!-- EVENT navbar_header_quick_links_before -->
+
+                        <!-- IF S_DISPLAY_SEARCH -->
+                            <li class="separator"></li>
+                            <!-- IF S_REGISTERED_USER -->
+                                <li>
+                                    <a href="{U_SEARCH_SELF}" role="menuitem">
+                                        <i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>{L_SEARCH_SELF}</span>
+                                    </a>
+                                </li>
+                            <!-- ENDIF -->
+                            <!-- IF S_USER_LOGGED_IN -->
+                                <li>
+                                    <a href="{U_SEARCH_NEW}" role="menuitem">
+                                        <i class="icon fa-file-o fa-fw icon-red" aria-hidden="true"></i><span>{L_SEARCH_NEW}</span>
+                                    </a>
+                                </li>
+                            <!-- ENDIF -->
+                            <!-- IF S_LOAD_UNREADS -->
+                                <li>
+                                    <a href="{U_SEARCH_UNREAD}" role="menuitem">
+                                        <i class="icon fa-file-o fa-fw icon-red" aria-hidden="true"></i><span>{L_SEARCH_UNREAD}</span>
+                                    </a>
+                                </li>
+                            <!-- ENDIF -->
+                                <li>
+                                    <a href="{U_SEARCH_UNANSWERED}" role="menuitem">
+                                        <i class="icon fa-file-o fa-fw icon-gray" aria-hidden="true"></i><span>{L_SEARCH_UNANSWERED}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{U_SEARCH_ACTIVE_TOPICS}" role="menuitem">
+                                        <i class="icon fa-file-o fa-fw icon-blue" aria-hidden="true"></i><span>{L_SEARCH_ACTIVE_TOPICS}</span>
+                                    </a>
+                                </li>
+                                <li class="separator"></li>
+                                <li>
+                                    <a href="{U_SEARCH}" role="menuitem">
+                                        <i class="icon fa-search fa-fw" aria-hidden="true"></i><span>{L_SEARCH}</span>
+                                    </a>
+                                </li>
+                        <!-- ENDIF -->
+
+                        <!-- IF not S_IS_BOT and (S_DISPLAY_MEMBERLIST or U_TEAM) -->
+                            <li class="separator"></li>
+                            <!-- IF S_DISPLAY_MEMBERLIST -->
+                                <li>
+                                    <a href="{U_MEMBERLIST}" role="menuitem">
+                                        <i class="icon fa-group fa-fw" aria-hidden="true"></i><span>{L_MEMBERLIST}</span>
+                                    </a>
+                                </li>
+                            <!-- ENDIF -->
+                        <!-- ENDIF -->
+                        <li class="separator"></li>
+
+                        <!-- EVENT navbar_header_quick_links_after -->
+                    </ul>
+                </div>
+            </li>
+            
+            <!-- EVENT overall_header_navigation_prepend -->
+            <!-- EVENT overall_header_navigation_append -->
+
+            <!-- IF IS_MOBILE -->
+                <script>
+                    //console.log('Mobile - navbar_header.html');
+                </script>
+            <!-- ELSE -->
+                <script>
+                    //console.log('Desktop  - navbar_header.html');
+                </script>
+                <!-- IF U_ACP --><li class="small-icon icon-acp" data-last-responsive="true"><a href="{U_ACP}" title="{L_ACP}" role="menuitem" aria-label="ACP"><span>{L_ACP_SHORT}</span></a></li><!-- ENDIF -->
+                <!-- IF U_MCP --><li class="small-icon icon-mcp" data-last-responsive="true"><a href="{U_MCP}" title="{L_MCP}" role="menuitem" aria-label="MCP"><span>{L_MCP_SHORT}</span></a></li><!-- ENDIF -->
+                <!-- Add your nav link below -->
+                <li role="menuitem" aria-label="Foro" class="small-icon icon-forum" data-last-responsive="true">
+                    <a href="/foro/" title="Foro El Aire Acondicionado .com" role="menuitem">
+                    <span>Foro</span>
+                    </a>
+                </li>             
+            <!-- ENDIF -->
+        </ul>
+
+        <ul id="nav-breadcrumbs" class="nav-breadcrumbs linklist navlinks" role="menubar">
+            <!-- DEFINE $MICRODATA = ' itemscope itemtype="http://schema.org/ListItem"' -->
+            <li role="menuitem" aria-label="Breadcrumbs" class="breadcrumbs">
+            <ol itemscope itemtype="http://schema.org/BreadcrumbList">
+                <!-- IF U_SITE_HOME -->
+                <li class="crumb" itemprop="itemListElement"{$MICRODATA}>
+                <i class="icon fa-home fa-fw"></i>
+                <a itemprop="item" href="{U_SITE_HOME}" data-navbar-reference="home"><span itemprop="name">{L_SITE_HOME}</span></a>
+                <meta itemprop="position" content="1" />
+                </li><!-- ENDIF -->
+                <li class="crumb" itemprop="itemListElement"{$MICRODATA}>
+                <a itemprop="item" href="{U_INDEX}" accesskey="h" data-navbar-reference="index"><span itemprop="name">{L_INDEX}</span></a>
+                <meta itemprop="position" content="2" />
+                </li>
+                <!-- BEGIN navlinks(0,0) -->
+                <li class="crumb" itemprop="itemListElement"{$MICRODATA}>
+                <a itemprop="item" href="{navlinks.U_VIEW_FORUM}"<!-- IF navlinks.MICRODATA --> {navlinks.MICRODATA}<!-- ENDIF -->><span itemprop="name">{navlinks.FORUM_NAME}</span></a>
+                <meta itemprop="position" content="3" />
+                </li>
+                <!-- END navlinks -->
+                <!-- BEGIN navlinks(1,1) -->
+                <li class="crumb" itemprop="itemListElement"{$MICRODATA}>
+                <a itemprop="item" href="{navlinks.U_VIEW_FORUM}"<!-- IF navlinks.MICRODATA --> {navlinks.MICRODATA}<!-- ENDIF -->><span itemprop="name">{navlinks.FORUM_NAME}</span></a>
+                <meta itemprop="position" content="4" />
+                </li>
+                <!-- END navlinks -->
+            </ol>
+            </li>
+        </ul>
+
+
+</div>

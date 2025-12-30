@@ -1,0 +1,42 @@
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v31x\profilefield_remove_underscore_from_alpha.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v31x\v311.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\gold.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc6.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc5.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc4.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc3.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc1.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta4.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta3.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta1.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\alpha3.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\alpha2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\alpha1.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\softdelete_mcp_modules.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\softdelete_p2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\softdelete_p1.
+[DEBUG] Installing Schema: \phpbb\db\migration\data\v310\softdelete_p1.
+[DEBUG] Installing Schema: \phpbb\db\migration\data\v310\softdelete_p1; Time: 12.68 seconds
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v31x\profilefield_remove_underscore_from_alpha.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v31x\v311.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\gold.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc6.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc5.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc4.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc3.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\rc1.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta4.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta3.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\beta1.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\alpha3.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\alpha2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\alpha1.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\softdelete_mcp_modules.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\softdelete_p2.
+[DEBUG] Apply dependencies of \phpbb\db\migration\data\v310\softdelete_p1.
+[DEBUG] Installing Schema: \phpbb\db\migration\data\v310\softdelete_p1.
+[DEBUG] Installing Schema: \phpbb\db\migration\data\v310\softdelete_p1; Time: 12.48 seconds

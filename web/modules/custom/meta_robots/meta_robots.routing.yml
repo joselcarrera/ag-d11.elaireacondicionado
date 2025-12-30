@@ -1,0 +1,15 @@
+meta_robots.settings:
+  path: "/admin/config/content/meta_robots"
+  defaults:
+    _form: '\Drupal\meta_robots\Form\MetarobotsSettingsForm'
+    _title: "Configuración Meta robots"
+  requirements:
+    _permission: "administer site configuration"
+
+meta_robots.run:
+  path: "/admin/config/content/meta_robots/run"
+  defaults:
+    _form: '\Drupal\meta_robots\Form\MetarobotsRunForm'
+    _title: "Aplicar Meta robots"
+  requirements:
+    _permission: "administer site configuration"

@@ -1,0 +1,239 @@
+# One month for most static assets
+<filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
+# With Apache 2.4 the "Order, Deny" syntax has been deprecated and moved from
+# module mod_authz_host to a new module called mod_access_compat (which may be
+# disabled) and a new "Require" syntax has been introduced to mod_authz_host.
+# We could just conditionally provide both versions, but unfortunately Apache
+# does not explicitly tell us its version if the module mod_version is not
+# available. In this case, we check for the availability of module
+# mod_authz_core (which should be on 2.4 or higher only) as a best guess.
+<IfModule mod_version.c>
+	<IfVersion < 2.4>
+<Files "config.php">
+Order Allow,Deny
+Deny from All
+</Files>
+<Files "common.php">
+Order Allow,Deny
+Deny from All
+</Files>
+	</IfVersion>
+	<IfVersion >= 2.4>
+		<Files "config.php">
+			Require all denied
+		</Files>
+		<Files "common.php">
+			Require all denied
+		</Files>
+	</IfVersion>
+</IfModule>
+<IfModule !mod_version.c>
+	<IfModule !mod_authz_core.c>
+		<Files "config.php">
+			Order Allow,Deny
+			Deny from All
+		</Files>
+		<Files "common.php">
+			Order Allow,Deny
+			Deny from All
+		</Files>
+	</IfModule>
+	<IfModule mod_authz_core.c>
+		<Files "config.php">
+			Require all denied
+		</Files>
+		<Files "common.php">
+			Require all denied
+		</Files>
+	</IfModule>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  # You may need to un-comment the following lines
+  Options +FollowSymlinks
+  # To make sure that rewritten dir or file (/|.html) will not load dir.php in case it exist
+  Options -MultiViews
+  # REMEBER YOU ONLY NEED TO STARD MOD REWRITE ONCE
+  RewriteEngine On
+
+  # Uncomment the statement below if you want to make use of
+  # HTTP authentication and it does not already work.
+  # This could be required if you are for example using PHP via Apache CGI.
+  # RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+
+  # REWRITE BASE
+  RewriteBase /foro/
+
+#Sacado de aquí https://stackoverflow.com/questions/36649482/remove-double-slashes-in-url-and-remove-index-php-apache
+RewriteCond %{THE_REQUEST} //+(.+)\sHTTP
+RewriteRule ^ /foro/%1 [L,R]
+
+  #Esta redirección es para evitar la doble barra en medio de una URL
+  #Sacado de aquí: https://stackoverflow.com/questions/17080652/issue-in-removing-double-or-more-slashes-from-url-by-htaccess
+  RewriteCond %{REQUEST_URI} ^(.*)/{2,}(.*)$
+  RewriteRule . %1/%2 [R=301,L]
+
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  #REDIRECCIONES FORO
+  RewriteRule ^aire-acondicionado-portatil-mejores-modelos-t3757.html$ https://www.elaireacondicionado.com/articulos/aire-portatil [R=301,L]
+  RewriteRule ^feed.php(.*)$ /foro/ [R=301,L]
+  RewriteRule ^nunca-compren-un-fuji-electric$ nunca-compren-un-fuji-electric-t3210.html [R=301,L]
+  RewriteRule ^cuantas-frigorias-necesito-t4743.html$ https://www.elaireacondicionado.com/calcular-frigorias-aire-acondicionado [R=301,L]
+  RewriteRule ^cuantas-frigorias-necesito-t1832.html$ https://www.elaireacondicionado.com/calcular-frigorias-aire-acondicionado [R=301,L]
+  RewriteRule ^cuantas-frigorias-necesito-para-este-salon-t4225.html$ https://www.elaireacondicionado.com/calcular-frigorias-aire-acondicionado [R=301,L]
+  RewriteRule ^cambiar-de-sitio-la-unidad-exterior-hace-falta-gas-t3282.html$ /articulos/cambiar-aire-acondicionado [R=301,L]
+  RewriteRule ^cambiar-de-sitio-la-maquina-del-aire-acondicionado-t827.html$ /articulos/cambiar-aire-acondicionado [R=301,L]
+  RewriteRule ^cambiar-de-sitio-la-maquina-del-aire-acondicionado-t827.html$ /articulos/cambiar-aire-acondicionado [R=301,L]
+  RewriteRule ^aire-acondicionado-portatil-mala-opcion-t1630.html$ /articulos/ventajas-y-desventajas-del-aire-acondicionado-portatil [R=301,L]
+  RewriteRule ^aire-acondicionado-portatil-mala-opcion-t1630-20.html$ /articulos/ventajas-y-desventajas-del-aire-acondicionado-portatil [R=301,L]
+  RewriteRule ^aire-acondicionado-portatil-mala-opcion-t1630-40.html$ /articulos/ventajas-y-desventajas-del-aire-acondicionado-portatil [R=301,L]
+  RewriteRule ^aire-acondicionado-portatil-mala-opcion-t1630-60.html$ /articulos/ventajas-y-desventajas-del-aire-acondicionado-portatil [R=301,L]
+  RewriteRule ^aire-acondicionado-portatil-t4223.html$ /articulos/ventajas-y-desventajas-del-aire-acondicionado-portatil [R=301,L]
+
+
+  # HERE IS A GOOD PLACE TO FORCE CANONICAL DOMAIN
+  # Define fully qualified ssl aware protocol
+  # RewriteCond %{SERVER_PORT}s ^(443(s)|[0-9]+s)$
+  # RewriteRule ^.*$ - [env=HttpFullProto:http%2://]
+  # RewriteCond %{HTTP_HOST} !^elaireacondicionado$ [NC]
+  # RewriteRule ^(.*)$ %{ENV:HttpFullProto}elaireacondicionado/$1 [QSA,L,R=301]
+
+  # If your site can be accessed both with and without the 'www.' prefix, you
+  # can use one of the following settings to redirect users to your preferred
+  # URL, either WITH or WITHOUT the 'www.' prefix. Choose ONLY one option:
+  #
+  # To redirect all users to access the site WITH the 'www.' prefix,
+  # (http://example.com/... will be redirected to http://www.example.com/...)
+  # uncomment the following:
+#    RewriteCond %{HTTP_HOST} .
+#    RewriteCond %{HTTP_HOST} !^www\. [NC]
+#    RewriteRule ^ http%{ENV:protossl}://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  #
+  # To redirect all users to access the site WITHOUT the 'www.' prefix,
+  # (http://www.example.com/... will be redirected to http://example.com/...)
+  # uncomment the following:
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
+
+  # DO NOT GO FURTHER IF THE REQUESTED FILE / DIR DOES EXISTS
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule . - [L]
+  #####################################################
+  # PHPBB SEO REWRITE RULES ALL MODES
+  #####################################################
+  # AUTHOR : dcz www.phpbb-seo.com
+  # STARTED : 01/2006
+  #################################
+  # FORUMS PAGES
+  ###############
+  # FORUM INDEX REWRITERULE WOULD STAND HERE IF USED. "forum" REQUIRES TO BE SET AS FORUM INDEX
+  # RewriteRule ^forum\.html$ /foro/index.php [QSA,L,NC]
+  # FORUM ALL MODES
+  RewriteRule ^(forum|[a-z0-9_-]*-f)([0-9]+)(-([0-9]+))?\.html$ /foro/viewforum.php?f=$2&start=$4 [QSA,L,NC]
+  # TOPIC WITH VIRTUAL FOLDER ALL MODES
+  RewriteRule ^(forum|[a-z0-9_-]*-f)([0-9]+)/(topic|[a-z0-9_-]*-t)([0-9]+)(-([0-9]+))?\.html$ /foro/viewtopic.php?f=$2&t=$4&start=$6 [QSA,L,NC]
+  # TOPIC WITHOUT FORUM ID & DELIM ALL MODES
+  RewriteRule ^([a-z0-9_-]*)/?(topic|[a-z0-9_-]*-t)([0-9]+)(-([0-9]+))?\.html$ /foro/viewtopic.php?forum_uri=$1&t=$3&start=$5 [QSA,L,NC]
+  # PHPBB FILES ALL MODES
+  RewriteRule ^resources/[a-z0-9_-]+/(thumb/)?([0-9]+)$ /foro/download/file.php?id=$2&t=$1 [QSA,L,NC]
+  # PROFILES ALL MODES WITH ID
+  RewriteRule ^(member|[a-z0-9_-]*-u)([0-9]+)\.html$ /foro/memberlist.php?mode=viewprofile&u=$2 [QSA,L,NC]
+  # USER MESSAGES ALL MODES WITH ID
+  RewriteRule ^(member|[a-z0-9_-]*-u)([0-9]+)-(topics|posts)(-([0-9]+))?\.html$ /foro/search.php?author_id=$2&sr=$3&start=$5 [QSA,L,NC]
+  # GROUPS ALL MODES
+  RewriteRule ^(group|[a-z0-9_-]*-g)([0-9]+)(-([0-9]+))?\.html$ /foro/memberlist.php?mode=group&g=$2&start=$4 [QSA,L,NC]
+  # POST
+  RewriteRule ^post([0-9]+)\.html$ /foro/viewtopic.php?p=$1 [QSA,L,NC]
+  # ACTIVE TOPICS
+  RewriteRule ^active-topics(-([0-9]+))?\.html$ /foro/search.php?search_id=active_topics&start=$2&sr=topics [QSA,L,NC]
+  # UNANSWERED TOPICS
+  RewriteRule ^unanswered(-([0-9]+))?\.html$ /foro/search.php?search_id=unanswered&start=$2&sr=topics [QSA,L,NC]
+  # NEW POSTS
+  RewriteRule ^newposts(-([0-9]+))?\.html$ /foro/search.php?search_id=newposts&start=$2&sr=topics [QSA,L,NC]
+  # UNREAD POSTS
+  RewriteRule ^unreadposts(-([0-9]+))?\.html$ /foro/search.php?search_id=unreadposts&start=$2 [QSA,L,NC]
+  # THE TEAM
+  RewriteRule ^the-team\.html$ /foro/memberlist.php?mode=team [QSA,L,NC]
+  # HERE IS A GOOD PLACE TO ADD OTHER PHPBB RELATED REWRITERULES
+
+  RewriteRule ^([a-z0-9_-]*)-vt([0-9]+)(-([0-9]+))?\.html$ $1-t$2$3\.html  [R=301,L]
+  RewriteRule ^([a-z0-9_-]*)-vf([0-9]+)(-([0-9]+))?\.html$ $1-f$2$3\.html  [R=301,L]
+
+  # FORUM WITHOUT ID & DELIM ALL MODES
+  # THESE LINES MUST BE LOCATED AT THE END OF YOUR HTACCESS TO WORK PROPERLY
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^([a-z0-9_-]+?)(-([0-9]+))?\.html$ /foro/viewforum.php?forum_uri=$1&start=$3 [QSA,L,NC]
+  # FIX RELATIVE PATHS : FILES
+  RewriteRule ^(style\.php|ucp\.php|mcp\.php|faq\.php|posting\.php|download/file\.php|report\.php|adm/index\.php|cron\.php)$ /foro/$1 [QSA,L,NC,R=301]
+  # FIX RELATIVE PATHS : IMAGES
+  RewriteRule ^(styles/.*|images/.*|assets/.*|ext/.*)$ /foro/$1 [QSA,L,NC,R=301]
+  #
+  # The following 3 lines will rewrite URLs passed through the front controller
+  # to not require app.php in the actual URL. In other words, a controller is
+  # by default accessed at /app.php/my/controller, but can also be accessed at
+  # /my/controller
+  #
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /foro/app.php [QSA,L]
+
+  # Rules to correctly serve gzip compressed CSS and JS files.
+  # Requires both mod_rewrite and mod_headers to be enabled.
+  <IfModule mod_headers.c>
+    # Serve gzip compressed CSS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.css $1\.css\.gz [QSA]
+
+    # Serve gzip compressed JS files if they exist and the client accepts gzip.
+    RewriteCond %{HTTP:Accept-encoding} gzip
+    RewriteCond %{REQUEST_FILENAME}\.gz -s
+    RewriteRule ^(.*)\.js $1\.js\.gz [QSA]
+
+    # Serve correct content types, and prevent mod_deflate double gzip.
+    RewriteRule \.css\.gz$ - [T=text/css,E=no-gzip:1]
+    RewriteRule \.js\.gz$ - [T=text/javascript,E=no-gzip:1]
+
+    <FilesMatch "(\.js\.gz|\.css\.gz)$">
+      # Serve correct encoding type.
+      Header set Content-Encoding gzip
+      # Force proxies to cache gzipped & non-gzipped css/js files separately.
+      Header append Vary Accept-Encoding
+    </FilesMatch>
+  </IfModule>
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE application/x-font
+AddOutputFilterByType DEFLATE application/x-font-opentype
+AddOutputFilterByType DEFLATE application/x-font-otf
+AddOutputFilterByType DEFLATE application/x-font-truetype
+AddOutputFilterByType DEFLATE application/x-font-ttf
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE font/opentype
+AddOutputFilterByType DEFLATE font/otf
+AddOutputFilterByType DEFLATE font/ttf
+AddOutputFilterByType DEFLATE image/svg+xml
+AddOutputFilterByType DEFLATE image/x-icon
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/javascript
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4\.0[678] no-gzip
+BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+Header append Vary User-Agent
+</IfModule>

@@ -1,0 +1,64 @@
+<!-- IF S_REGISTERED_USER -->
+<div class="navbar navbar-metro" role="navigation">
+    <div class="inner">    
+        <ul id="nav-main-top" class="linklist bulletin" role="menubar">
+            <!-- EVENT navbar_header_user_profile_prepend -->
+            <li role="menuitem" aria-label="Menú de usuario" id="username_logged_in" class="rightside <!-- IF CURRENT_USER_AVATAR --> no-bulletin<!-- ENDIF -->" data-skip-responsive="true">
+                <!-- EVENT navbar_header_username_prepend -->
+                <div class="header-profile dropdown-container">
+                    <a href="{U_PROFILE}" class="header-avatar dropdown-trigger"><!-- IF CURRENT_USER_AVATAR -->{CURRENT_USER_AVATAR} <!-- ENDIF -->{CURRENT_USERNAME_SIMPLE}</a>
+                    <div class="dropdown">
+                        <div class="pointer"><div class="pointer-inner"></div></div>
+                        <ul class="dropdown-contents" role="menu">
+                            <!-- IF U_RESTORE_PERMISSIONS -->
+                                <li>
+                                    <a href="{U_RESTORE_PERMISSIONS}">
+                                        <i class="icon fa-refresh fa-fw" aria-hidden="true"></i><span>{L_RESTORE_PERMISSIONS}</span>
+                                    </a>
+                                </li>
+                            <!-- ENDIF -->
+
+                        <!-- EVENT navbar_header_profile_list_before -->
+
+                            <li>
+                                <a href="{U_PROFILE}" title="{L_PROFILE}" role="menuitem" aria-label="Perfil de usuario">
+                                    <i class="icon fa-sliders fa-fw" aria-hidden="true"></i><span>{L_PROFILE}</span>
+                                </a>
+                            </li>
+                            <!-- IF U_USER_PROFILE -->
+                                <li>
+                                    <a href="{U_USER_PROFILE}" title="{L_READ_PROFILE}" role="menuitem" aria-label="Perfil de usuario">
+                                        <i class="icon fa-user fa-fw" aria-hidden="true"></i><span>{L_READ_PROFILE}</span>
+                                    </a>
+                                </li>
+                            <!-- ENDIF -->
+
+                            <!-- EVENT navbar_header_profile_list_after -->
+
+                            <li class="separator"></li>
+                            <li>
+                                <a href="{U_LOGIN_LOGOUT}" title="{L_LOGIN_LOGOUT}" accesskey="x" role="menuitem" aria-label="Logout">
+                                    <i class="icon fa-power-off fa-fw" aria-hidden="true"></i><span>{L_LOGIN_LOGOUT}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- EVENT navbar_header_username_append -->
+            </li>
+            <!-- IF S_DISPLAY_PM -->
+                <li role="menuitem" aria-label="Mensajes privados" class="small-icon icon-pm rightside" data-skip-responsive="true">
+                    <a href="{U_PRIVATEMSGS}" role="menuitem"><i class="icon fa-inbox fa-fw" aria-hidden="true"></i><span>{L_PRIVATE_MESSAGES}</span></a>&nbsp;<a href="{U_PRIVATEMSGS}" class="pm-count"><strong>{PRIVATE_MESSAGE_COUNT}</strong></a>
+                </li>
+            <!-- ENDIF -->
+            <!-- IF S_NOTIFICATIONS_DISPLAY -->
+                <li role="menuitem" aria-label="Notificaciones" class="small-icon icon-notification dropdown-container dropdown-{S_CONTENT_FLOW_END} rightside" data-skip-responsive="true">
+                    <a href="{U_VIEW_ALL_NOTIFICATIONS}" id="notification_list_button" class="dropdown-trigger"><i class="icon fa-bell fa-fw" aria-hidden="true"></i><span>{L_NOTIFICATIONS}</span></a>&nbsp;<a href="{U_VIEW_ALL_NOTIFICATIONS}" class="notification-count"><strong>{NOTIFICATIONS_COUNT}</strong></a>
+                    <!-- INCLUDE notification_dropdown.html -->
+                </li>
+            <!-- ENDIF -->
+            <!-- EVENT navbar_header_user_profile_append -->
+        </ul>
+	</div>
+</div>
+<!-- ENDIF -->

