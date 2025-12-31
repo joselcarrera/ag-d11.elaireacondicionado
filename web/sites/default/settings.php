@@ -876,7 +876,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'eqdqatdg_d11elaireacondicionado.web',
+  'database' => 'eqdqatdg_ag-d11elaireacondicionado.web',
   'username' => 'admin',
   'password' => 'admin',
   'prefix' => '',
